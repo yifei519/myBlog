@@ -59,7 +59,7 @@ public class MDUtils {
    }
 
     public static void main(String[] args) {
-        System.out.println("加密结果="+code("123"));
+        System.out.println("加密结果="+code("750906"));
     }
 
 }

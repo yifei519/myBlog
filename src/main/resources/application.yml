@@ -17,4 +17,4 @@ server:
       enabled: true
   tomcat:
     uri-encoding: utf-8
-
+  port: 80
