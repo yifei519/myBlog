@@ -63,10 +63,24 @@
 		<div class="ui inverted section divider"></div>
 		<p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - <span th:text="${#dates.year(#dates.createNow())}">2020</span> Designed by FangYiFan</p>
 	</div>
+
+</footer>
+
+<th:block th:fragment="script" >
+<!--	<script th:src="@{/js/jquery-3.2.1.min.js}"></script>-->
+<!--	<script th:src="@{/dist/semantic.min.js}"></script>-->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+	<script th:src="@{/lib/prism/prism.js}"></script>
+	<script src="../static/lib/tocbot/tocbot.min.js"  th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+	<script src="../static/lib/qrcode/qrcode.min.js"  th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+	<script src="../static/lib/waypoints/jquery.waypoints.min.js"  th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+	<script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
 	<script>
 		setInterval(time,1000);
 		function time (){
-			var startTime = new Date("2020-9-20");
+			var startTime = new Date("2020/9/20");
 			var endTime = new Date();
 			var endTime_startTime = endTime-startTime;
 			// console.log("startTime--"+startTime+"--endTime--"+endTime+"--endTime-startTime--"+endTime_startTime);
@@ -86,17 +100,6 @@
 			// console.log(str)
 		}
 	</script>
-</footer>
-
-<th:block th:fragment="script" >
-	<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
-	<script th:src="@{/dist/semantic.min.js}"></script>
-	<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
-	<script th:src="@{/lib/prism/prism.js}"></script>
-	<script src="../static/lib/tocbot/tocbot.min.js"  th:src="@{/lib/tocbot/tocbot.min.js}"></script>
-	<script src="../static/lib/qrcode/qrcode.min.js"  th:src="@{/lib/qrcode/qrcode.min.js}"></script>
-	<script src="../static/lib/waypoints/jquery.waypoints.min.js"  th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
-	<script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
 </th:block>
 </body>
 </html>

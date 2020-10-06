@@ -33,3 +33,7 @@
 2020-10-07 01:20:37.098  INFO 19276 --- [http-nio-8080-exec-1] com.lb.aspect.LogAspect                  : Result : index
 2020-10-07 01:20:37.779  INFO 19276 --- [http-nio-8080-exec-3] com.lb.aspect.LogAspect                  : Request : RequestLog{url='/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lb.web.IndexController.newblogs', args=[{}]}
 2020-10-07 01:20:37.783  INFO 19276 --- [http-nio-8080-exec-3] com.lb.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-10-07 01:22:57.913  INFO 19276 --- [Thread-20] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-10-07 01:22:57.913  INFO 19276 --- [Thread-20] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-07 01:22:57.914  INFO 19276 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2020-10-07 01:22:57.918  INFO 19276 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
