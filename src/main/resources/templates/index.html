@@ -11,28 +11,24 @@
 <body>
 <div style="width: 100%;height: 100%" class="ui rail">
     <!--导航-->
-    <div style="width: 100%;height: auto" class="m-fixed m-nav">
-        <nav id="nav" th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small"></nav>
+    <div id="nav" style="width: 100%;height: auto ;display: none" class="m-fixed m-nav">
+        <nav  th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small"></nav>
     </div>
     <!--巨幕-->
-    <div id="top" class="ui inverted vertical masthead center aligned segment" style="height: 600px;background: url(../images/index/blake-connally-B3l0g6HLxr8-unsplash.jpg) no-repeat ;background-size:100% 100%;">
-        <div class="ui text container" style="margin-top: 360px">
+    <div id="top" class="ui inverted vertical masthead center aligned segment" style="min-height:400px;height: 600px;background: url(../images/index/blake-connally-B3l0g6HLxr8-unsplash1.jpg) no-repeat fixed;background-size:100% 100%;">
+        <div class="ui text container" style="margin-top: 360px" id="top-sub">
             <div class="description center-align"><span id="subtitle">欢迎来到YiFan的个人网站</span>
                 <span class="typed-cursor typed-cursor--blink">|</span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>var typed = new Typed("#subtitle", {
-                    strings: ["欢迎来到YiFan的个人网站", "Welcome to YiFan&#39;s personal blog"],
-                    startDelay: 300,
-                    typeSpeed: 100,
-                    loop: !0,
-                    backSpeed: 50,
-                    showCursor: !0
-                })</script>
+
             </div>
             <h1 class="ui inverted header">一切的的努力都为了更好的自己</h1>
             <!--      <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>-->
         </div>
+        <div id="downbar" style="margin-top: 100px;width: 100%;z-index: 1 !important;">
+            <div id="todown-button" class="ui icon button inverted"><i class="chevron down icon"></i></div>
+        </div>
     </div>
+
 
     <!--中间内容-->
     <div class="m-container m-padded-tb-big animated fadeIn" id="waypoint">
@@ -267,6 +263,7 @@
     </th:block>
     <!--  <script th:src="@{/js/jquery-3.2.1.min.js}"></script>-->
     <!--  <script th:src="@{/dist/semantic.min.js}"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 </div>
 <script>
     $('.menu.toggle').click(function () {
@@ -274,12 +271,14 @@
     });
     /*返回顶部*/
     var waypoint = new Waypoint({
-        element: document.getElementById('waypoint'),
+        element: document.getElementById('top-sub'),
         handler: function (direction) {
             if (direction === 'down') {
-                $('#toolbar').show(100);
+                $('#toolbar').show(200);
+                $('#nav').slideDown(500);
             } else {
                 $('#toolbar').hide(500);
+                $('#nav').slideUp(500);
             }
             // console.log('Scrolled to waypoint!  ' + direction);
         }
@@ -287,6 +286,47 @@
     $('#toTop-button').click(function () {
         $(window).scrollTo(0, 500);
     });
+    $('#todown-button').click(function () {
+        $(window).scrollTo($('#waypoint').offset().top-70, 500);
+    });
+</script>
+<script>var typed = new Typed("#subtitle", {
+    strings: ["欢迎来到YiFan的个人网站", "Welcome to YiFan&#39;s personal blog"],
+    startDelay: 300,
+    typeSpeed: 100,
+    loop: !0,
+    backSpeed: 50,
+    showCursor: !0
+})</script>
+<script>
+    //定义事件侦听器函教
+
+    function displaywindowSize(){
+        //获取窗口的宽度和高度，不包括滚动条
+        var h = document.documentElement.clientHeight;
+
+            $("#top").height(h);
+            $("#top-sub").css('marginTop',h/2+30);
+            var mar = $("#top-sub").css('marginTop');
+        // console.log(mar);
+
+
+
+       /* if (h<400){
+            con++;
+            $("#top").height(400);
+            $("#top-sub").css('marginTop',h/3);
+            // console.log(11111111)
+        }*/
+        // console.log("高度："+h+"计数器："+con)
+    }
+    //将事件侦听器函数附加到窗口的resize事件
+    //第一次调用该函数
+    displaywindowSize();
+    window.onresize = function(){
+        displaywindowSize();
+
+    }
 </script>
 </body>
 </html>

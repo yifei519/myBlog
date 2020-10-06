@@ -30,7 +30,9 @@ public class LoginController {
         model.addAttribute("user",session.getAttribute("user"));
         return "admin/index";
     }
-
+    @GetMapping("/login")
+    public String LoginPage1() { return "admin/login";}
+    
     //登陆判断进行逻辑处理
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password,

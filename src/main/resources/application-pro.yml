@@ -17,4 +17,4 @@ logging:
   file:
     path: log/myblog-pro.log
 server:
-  port: 8081
+  port: 80

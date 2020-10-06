@@ -2,7 +2,7 @@ spring:
   thymeleaf:
     mode: HTML
   profiles:
-    active: dev
+    active: pro
 
 
 comment:
@@ -17,4 +17,4 @@ server:
       enabled: true
   tomcat:
     uri-encoding: utf-8
-  port: 80
+  port: 8080

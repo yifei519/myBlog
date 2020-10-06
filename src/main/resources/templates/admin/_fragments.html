@@ -63,31 +63,31 @@
 		<div class="ui inverted section divider"></div>
 		<p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - <span th:text="${#dates.year(#dates.createNow())}">2020</span> Designed by FangYiFan</p>
 	</div>
-
+	<script>
+		setInterval(time,1000);
+		function time (){
+			var startTime = new Date("2020-9-20");
+			var endTime = new Date();
+			var endTime_startTime = endTime-startTime;
+			// console.log("startTime--"+startTime+"--endTime--"+endTime+"--endTime-startTime--"+endTime_startTime);
+			//计算出相差天数
+			var days=Math.floor(endTime_startTime/(24*3600*1000))
+			//计算出小时数
+			var leave1=endTime_startTime%(24*3600*1000)    //计算天数后剩余的毫秒数
+			var hours=Math.floor(leave1/(3600*1000))
+			//计算相差分钟数
+			var leave2=leave1%(3600*1000)        //计算小时数后剩余的毫秒数
+			var minutes=Math.floor(leave2/(60*1000))
+			//计算相差秒数
+			var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
+			var seconds=Math.round(leave3/1000);
+			var str = "本站已运行："+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒";
+			$("#time").text(str);
+			// console.log(str)
+		}
+	</script>
 </footer>
-<script>
-	setInterval(time,1000);
-	function time (){
-		var startTime = new Date("2020-9-20");
-		var endTime = new Date();
-		var endTime_startTime = endTime-startTime;
-		// console.log("startTime--"+startTime+"--endTime--"+endTime+"--endTime-startTime--"+endTime_startTime);
-		//计算出相差天数
-		var days=Math.floor(endTime_startTime/(24*3600*1000))
-		//计算出小时数
-		var leave1=endTime_startTime%(24*3600*1000)    //计算天数后剩余的毫秒数
-		var hours=Math.floor(leave1/(3600*1000))
-		//计算相差分钟数
-		var leave2=leave1%(3600*1000)        //计算小时数后剩余的毫秒数
-		var minutes=Math.floor(leave2/(60*1000))
-		//计算相差秒数
-		var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
-		var seconds=Math.round(leave3/1000);
-		var str = "本站已运行："+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒";
-		$("#time").text(str);
-		// console.log(str)
-	}
-</script>
+
 <th:block th:fragment="script" >
 	<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
 	<script th:src="@{/dist/semantic.min.js}"></script>

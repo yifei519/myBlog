@@ -44,12 +44,13 @@ public class TypeController {
     }
 
     @PostMapping("/types")
-    public String input(@Valid Type type, BindingResult result, RedirectAttributes attributes){
+    public String input(@Valid Type type, BindingResult result, RedirectAttributes attributes,HttpSession session){
         //用于增加时判断数据库是否存在该值
         Type typeQuery= typeService.getTypeBnName(type.getName());
         if (typeQuery!=null){
             result.rejectValue("name","nameError","不能添加重复的类");
         }
+        attributes.addAttribute("user",session.getAttribute("user"));
         //用于校验
         if(result.hasErrors()){
             return "admin/types-input";
@@ -94,6 +95,7 @@ public class TypeController {
             attributes.addFlashAttribute("message","修改成功！");
 
         }
+        attributes.addAttribute("user",session.getAttribute("user"));
         return "redirect:/admin/types";
     }
 

@@ -49,8 +49,9 @@ public class TagController {
 
 
     @PostMapping("/tags")
-    public String post(@Valid Tag tag, BindingResult result, RedirectAttributes attributes) {
+    public String post(@Valid Tag tag, BindingResult result, RedirectAttributes attributes,HttpSession session) {
         Tag tag1 = tagService.getTagByName(tag.getName());
+        attributes.addAttribute("user",session.getAttribute("user"));
         if (tag1 != null) {
             result.rejectValue("name","nameError","不能添加重复的分类");
         }
